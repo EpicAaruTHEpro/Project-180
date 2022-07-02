@@ -1,5 +1,5 @@
 //let latitude = 37.0902, longitude = -95.7129;
-var latitude, longitude, destination
+var latitude, longitude
 
 
 $(document).ready(function () {
@@ -19,7 +19,7 @@ function initGeolocation() {
 
 $(function () {
 	$("#navigate-button").click(function () {
-		window.location.href = `ar_weather.html?source=${latitude};${longitude}&destination=${destination[1]};${destination[0]}`
+		window.location.href = `ar_weather.html?source=${latitude};${longitude}`
 	})
 })
 
@@ -42,8 +42,6 @@ function success(position) {
 		new MapboxGeocoder({
 			accessToken: mapboxgl.accessToken,
 			mapboxgl: mapboxgl
-		}).on('result', function (e) {
-			destination = e.result.center
 		})
 	);
 
